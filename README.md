@@ -4,16 +4,16 @@
 --
   	//Definition for a binary tree node.
       public class TreeNode {
-	    	int val;
+	      int val;
 	      TreeNode left;
 	      TreeNode right;
 	      TreeNode(int x) { 
-		      val = x; 
+		      val = x;
 				}
 	    }
 
 	class Solution {
-    		public List<Integer> preorderTraversal(TreeNode root) {
+    	public List<Integer> preorderTraversal(TreeNode root) {
         		Stack<TreeNode> stack = new Stack<>();
         		List<Integer> list = new ArrayList<>();
         		while (root != null || !stack.isEmpty()) {
@@ -31,18 +31,18 @@
 --
 	class Solution {
     	public List<Integer> inorderTraversal(TreeNode root) {
-        	Stack<TreeNode> stack = new Stack<>();
-        	List<Integer> list = new ArrayList<>();
-        	while (root != null || !stack.isEmpty()) {
-            	while (root != null) {
-                	stack.push(root);
-                	root = root.left;
-            	}
-            	TreeNode node = stack.pop();
-            	list.add(node.val);
-            	root = node.right;
-        	}
-        	return list;
+        		Stack<TreeNode> stack = new Stack<>();
+        		List<Integer> list = new ArrayList<>();
+        		while (root != null || !stack.isEmpty()) {
+            		while (root != null) {
+                		stack.push(root);
+                		root = root.left;
+            		}
+            		TreeNode node = stack.pop();
+            		list.add(node.val);
+            		root = node.right;
+        		}
+        		return list;
     	}
 	}
 
@@ -50,16 +50,16 @@
 --
 	class Solution {
     	public List<Integer> postorderTraversal(TreeNode root) {
-        	Stack<TreeNode> stack = new Stack<>();
-        	LinkedList<Integer> list = new LinkedList<>();
-        	while (root != null || !stack.isEmpty()) {
-            	while(root != null) {
-                	stack.push(root);
-                	list.addFirst(root.val);
-                	root = root.right;
-            	}
-            	root = stack.pop().left; 
-        	}
-        	return list;
+        		Stack<TreeNode> stack = new Stack<>();
+        		LinkedList<Integer> list = new LinkedList<>();
+        		while (root != null || !stack.isEmpty()) {
+            		while(root != null) {
+                		stack.push(root);
+                		list.addFirst(root.val);
+                		root = root.right;
+            		}
+            		root = stack.pop().left; 
+        		}
+        		return list;
     	}
 	}
