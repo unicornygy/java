@@ -1,83 +1,64 @@
-二叉树的三种遍历形式（非递归方式）
-======
+**二叉树的三种遍历形式（非递归方式）**
+==
 前序遍历
-----
-\/**<br>
-\* Definition for a binary tree node.<br>
-\* public class TreeNode {<br>
-\*     int val;<br>
-\*     TreeNode left;<br>
-\*     TreeNode right;<br>
-\*     TreeNode(int x) { val = x; }<br>
-\* }<br>
-\*/<br>
-class Solution {<br>
-    public List<Integer> preorderTraversal(TreeNode root) {<br>
-        Stack<TreeNode> stack = new Stack<>();<br>
-        List<Integer> list = new ArrayList<>();<br>
-        while (root != null || !stack.isEmpty()) {<br>
-            while (root != null) {<br>
-                stack.push(root);<br>
-                list.add(root.val);<br>
-                root = root.left;<br>
-            }<br>
-            root = stack.pop().right;<br>
-        }<br>
-        return list;<br>
-    }<br>
-}<br>
+--
+  	//Definition for a binary tree node.
+      public class TreeNode {
+	      int val;
+	      TreeNode left;
+	      TreeNode right;
+	      TreeNode(int x) { 
+		      val = x; }
+	      }
 
+	class Solution {
+    	public List<Integer> preorderTraversal(TreeNode root) {
+        	Stack<TreeNode> stack = new Stack<>();
+        	List<Integer> list = new ArrayList<>();
+        	while (root != null || !stack.isEmpty()) {
+            	while (root != null) {
+                	stack.push(root);
+                	list.add(root.val);
+                	root = root.left;
+            	}
+            	root = stack.pop().right;
+        	}
+        	return list;
+    	}
+	}	
 中序遍历
----
-\/**<br>
-\* Definition for a binary tree node.<br>
-\* public class TreeNode {<br>
-\*     int val;<br>
-\*     TreeNode left;<br>
-\*     TreeNode right;<br>
-\*     TreeNode(int x) { val = x; }<br>
-\* }<br>
-\*/<br>
-class Solution {<br>
-    public List<Integer> inorderTraversal(TreeNode root) {<br>
-        Stack<TreeNode> stack = new Stack<>();<br>
-        List<Integer> list = new ArrayList<>();<br>
-        while (root != null || !stack.isEmpty()) {<br>
-            while (root != null) {<br>
-                stack.push(root);<br>
-                root = root.left;<br>
-            }<br>
-            TreeNode node = stack.pop();<br>
-            list.add(node.val);<br>
-            root = node.right;<br>
-        }<br>
-        return list;<br>
-    }<br>
-}<br>
+--
+	class Solution {
+    	public List<Integer> inorderTraversal(TreeNode root) {
+        	Stack<TreeNode> stack = new Stack<>();
+        	List<Integer> list = new ArrayList<>();
+        	while (root != null || !stack.isEmpty()) {
+            	while (root != null) {
+                	stack.push(root);
+                	root = root.left;
+            	}
+            	TreeNode node = stack.pop();
+            	list.add(node.val);
+            	root = node.right;
+        	}
+        	return list;
+    	}
+	}
 
 后序遍历
----
-\/**<br>
-\* Definition for a binary tree node.<br>
-\* public class TreeNode {<br>
-\*     int val;<br>
-\*     TreeNode left;<br>
-\*     TreeNode right;<br>
-\*     TreeNode(int x) { val = x; }<br>
-\* }<br>
-\*/<br>
-class Solution {<br>
-    public List<Integer> postorderTraversal(TreeNode root) {<br>
-        Stack<TreeNode> stack = new Stack<>();<br>
-        LinkedList<Integer> list = new LinkedList<>();<br>
-        while (root != null || !stack.isEmpty()) {<br>
-            while(root != null) {<br>
-                stack.push(root);<br>
-                list.addFirst(root.val);<br>
-                root = root.right;<br>
-            }<br>
-            root = stack.pop().left; <br>
-        }<br>
-        return list;<br>
-    }<br>
-}<br>
+--
+	class Solution {
+    	public List<Integer> postorderTraversal(TreeNode root) {
+        	Stack<TreeNode> stack = new Stack<>();
+        	LinkedList<Integer> list = new LinkedList<>();
+        	while (root != null || !stack.isEmpty()) {
+            	while(root != null) {
+                	stack.push(root);
+                	list.addFirst(root.val);
+                	root = root.right;
+            	}
+            	root = stack.pop().left; 
+        	}
+        	return list;
+    	}
+	}
