@@ -4,26 +4,27 @@
 --
   	//Definition for a binary tree node.
       public class TreeNode {
-	      int val;
+	    	int val;
 	      TreeNode left;
 	      TreeNode right;
 	      TreeNode(int x) { 
-		      val = x; }
-	      }
+		      val = x; 
+				}
+	    }
 
 	class Solution {
-    	public List<Integer> preorderTraversal(TreeNode root) {
-        	Stack<TreeNode> stack = new Stack<>();
-        	List<Integer> list = new ArrayList<>();
-        	while (root != null || !stack.isEmpty()) {
-            	while (root != null) {
-                	stack.push(root);
-                	list.add(root.val);
-                	root = root.left;
-            	}
-            	root = stack.pop().right;
-        	}
-        	return list;
+    		public List<Integer> preorderTraversal(TreeNode root) {
+        		Stack<TreeNode> stack = new Stack<>();
+        		List<Integer> list = new ArrayList<>();
+        		while (root != null || !stack.isEmpty()) {
+            		while (root != null) {
+                		stack.push(root);
+                		list.add(root.val);
+                		root = root.left;
+            		}
+            		root = stack.pop().right;
+        		}
+        		return list;
     	}
 	}	
 中序遍历
